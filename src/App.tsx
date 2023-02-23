@@ -6,6 +6,7 @@ import { Presentation } from './components/Presentation'
 const Container = styled.div`
   width: 100vw;
   overflow-x: hidden;
+  font-family: ${props => props.theme.poppins};
 `
 
 export function App() {

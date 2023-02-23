@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import working from '../assets/images/illustration-working.svg'
-import bgShortenMobile from '../assets/images/bg-shorten-mobile.svg'
 
 const PresentationSection = styled.section`
     display: flex;
@@ -8,31 +7,33 @@ const PresentationSection = styled.section`
     align-items: center;
     position: relative;
     padding: 0 24px;
+    overflow-x: hidden;
 `
 
 const Img = styled.img`
     position: absolute;
-    width: 1200px;
-    height: 343px;
-    top: 96px;
+    left: 24px;
+    min-width: 498px;
+    height: 344px;
+    top: 22px;
 `
 
 const H2 = styled.h2`
-    font-weight: ${props => props.theme.extraBold};
-    font-size: 45px;
+    font-weight: ${props => props.theme.bold};
+    font-size: 40.2px;
     text-align: center;
-    margin-top: 400px;
+    margin-top: 399px;
     color: ${props => props.theme.veryDarkBlue};
-    line-height: 47px;
+    line-height: 48px;
 `
 
 const P = styled.p`
-    font-size: 20px;
+    font-size: ${props => props.theme.fontBase};
     text-align: center;
     color: ${props => props.theme.grayishViolet};
     font-weight: ${props => props.theme.medium};
-    margin-top: 15px;
-    line-height: 29px;
+    margin-top: 12px;
+    line-height: 30px;
 `
 
 const Button = styled.button`
@@ -40,47 +41,11 @@ const Button = styled.button`
     width: 197px;
     border-radius: 30px;
     background-color: ${props => props.theme.cyan};
-    color: #fff;
-    font-weight: ${props => props.theme.extraBold};
-    font-size: 20px;
-    margin-top: 33px;
-    margin-bottom: 168px;
-`
-
-const ShortenForm = styled.form`
-    height: 160px;
-    width: calc(100% - 48px);
-    padding: 25px 24px 22px 24px;
-    position: absolute;
-    bottom: 0;
-    transform: translateY(50%);
-    background-color: ${props => props.theme.darkViolet};
-    background-image: url(${bgShortenMobile});
-    background-repeat: no-repeat;
-    background-position: top right;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-`
-
-const ShortenInput = styled.input`
-    width: 100%;
-    height: 48px;
-    border-radius: 5px;
-    padding: 17px;
     font-weight: ${props => props.theme.bold};
-    font-size: 17.3px;
-`
-
-const ShortenSubmit = styled.button`
-    width: 100%;
-    height: 49px;
-    border-radius: 5px;
-    background-color: ${props => props.theme.cyan};
     color: #fff;
-    font-weight: ${props => props.theme.extraBold};
-    font-size: 19.2px;
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 168px;
 `
 
 export function Presentation(){
@@ -90,10 +55,6 @@ export function Presentation(){
             <H2>More than just shorter links</H2>
             <P>Build your brand's recognition and get detailed insights on how your links are performing.</P>
             <Button>Get Started</Button>
-            <ShortenForm>
-                <ShortenInput type="text" name="link" placeholder="Shorten a link here..." />
-                <ShortenSubmit type="submit">Shorten It!</ShortenSubmit>
-            </ShortenForm>
         </PresentationSection>
     )
 }

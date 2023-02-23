@@ -16,7 +16,7 @@ const ShortlyHeader = styled.header`
 const Nav = styled.nav`
     position: absolute;
     top: 56px;
-    width: 100%;
+    width: calc(100% - 48px);
     height: 383px;
     background-color: ${props => props.theme.darkViolet};
     border-radius: 10px;
