@@ -36,7 +36,7 @@ const P = styled.p`
     line-height: 30px;
 `
 
-const Button = styled.button`
+export const Button = styled.button`
     height: 56px;
     width: 197px;
     border-radius: 30px;

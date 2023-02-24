@@ -1,5 +1,7 @@
 import styled, { ThemeProvider } from 'styled-components'
+import { BoostYourLinks } from './components/BoostYourLinks'
 import { Features } from './components/Features'
+import { Footer } from './components/Footer'
 import { Header } from './components/Header'
 import { Presentation } from './components/Presentation'
 
@@ -48,6 +50,8 @@ export function App() {
         <Header />
         <Presentation />
         <Features />
+        <BoostYourLinks />
+        <Footer />
       </Container>
     </ThemeProvider>
   )
