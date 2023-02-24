@@ -2,7 +2,7 @@ import bgShortenMobile from '../../assets/images/bg-shorten-mobile.svg'
 import styled from 'styled-components'
 
 export const FeaturesSection = styled.section`
-    background-color: ${props => props.theme.grayTransparent};
+    background-color: ${props => props.theme.grayishVioletTransparent};
     padding: 0px 24px 80px 24px;
 
     form{
@@ -18,6 +18,7 @@ export const FeaturesSection = styled.section`
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        margin-bottom: 24px;
 
         input{
             width: 100%;
@@ -42,7 +43,7 @@ export const FeaturesSection = styled.section`
             font-style: italic;
             font-size: 11.7px;
             margin-top: 5px;
-            margin-bottom: 14px;
+            margin-bottom: 15px;
             display: none;
 
             &.show{
@@ -66,7 +67,7 @@ export const FeaturesSection = styled.section`
         text-align: center;
         font-weight: ${props => props.theme.bold};
         color: ${props => props.theme.veryDarkBlue};
-        margin-top: -7px;
+        margin-top: -17px;
     }
 
     p{
@@ -77,6 +78,47 @@ export const FeaturesSection = styled.section`
         margin-top: 19px;
         margin-bottom: 89px;
         line-height: 28px;
+    }
+`
+
+export const ShortenedContainer = styled.div`
+    width: 100%;
+
+    div{
+        padding: 12px 16px 18px 16px;
+        background-color: #fff;
+        transform: translateY(-80px);
+        margin-bottom: 24px;
+        
+        &:first-child{
+            font-size: 15.95px;
+            color: ${props => props.theme.veryDarkBlue};
+            margin-bottom: 1px;
+            height: 48px;
+        }
+
+        &:nth-child(2){
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 106px;
+
+            a{
+                color: ${props => props.theme.cyan};
+            }
+
+            button{
+                background-color: ${props => props.theme.cyan};
+                color: #fff;
+                font-weight: ${props => props.theme.bold};
+                height: 40px;
+                border-radius: 5px;
+
+                &.copied{
+                    background-color: ${props => props.theme.darkViolet};
+                }
+            }
+        }
     }
 `
 

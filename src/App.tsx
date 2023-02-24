@@ -31,7 +31,7 @@ export function App() {
     veryDarkViolet: 'hsl(260, 8%, 14%)',
 
     //with transparency
-    grayTransparent: 'hsla(0, 0%, 75%, 0.2)',
+    grayishVioletTransparent: 'hsla(257, 7%, 63%, 0.175)',
 
     //FONTS
     //Font Size
