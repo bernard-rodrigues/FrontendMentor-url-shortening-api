@@ -1,10 +1,6 @@
-import logo from '../assets/images/logo.svg'
 import styled from "styled-components"
-import MenuIcon from '@mui/icons-material/Menu';
-import CloseIcon from '@mui/icons-material/Close';
-import { useState } from 'react';
 
-const ShortlyHeader = styled.header`
+export const ShortlyHeader = styled.header`
     margin-top: 39px;
     padding: 0 24px;
     position: relative;
@@ -14,7 +10,7 @@ const ShortlyHeader = styled.header`
     color: ${props => props.theme.grayishViolet};
 `
 
-const Nav = styled.nav`
+export const Nav = styled.nav`
     position: absolute;
     top: 56px;
     width: calc(100% - 48px);
@@ -56,7 +52,7 @@ const Nav = styled.nav`
     }
 `
 
-const Divider = styled.div`
+export const Divider = styled.div`
     height: 1px;
     width: 100%;
     background-color: ${props => props.theme.grayishViolet};
@@ -64,42 +60,10 @@ const Divider = styled.div`
     transform: translateY(1px);
 `
 
-const SignUpButton = styled.button`
+export const SignUpButton = styled.button`
     width: 100%;
     height: 48px;
     background-color: ${props => props.theme.cyan};
     border-radius: 25px;
     margin-bottom: 1px;
 `
-
-export function Header(){
-    const [ navIsOpen, setNavIsOpen ] = useState(false)
-
-    function toggleNavIsOpen(){
-        setNavIsOpen(currentState => !currentState)
-    }
-    
-    return(
-        <ShortlyHeader>
-            <img src={logo} alt="Shortly logo" />
-            
-            { navIsOpen 
-            ? <CloseIcon fontSize="large" color="inherit" onClick={toggleNavIsOpen}/> 
-            : <MenuIcon fontSize="large" color="inherit" onClick={toggleNavIsOpen}/>
-            }
-            
-            <Nav className={navIsOpen ? "show" : ""}>
-                <ul>
-                    <li>Features</li>
-                    <li>Pricing</li>
-                    <li>Resources</li>
-
-                    <li><Divider /></li>
-
-                    <li>Login</li>
-                    <li><SignUpButton>SignUp</SignUpButton></li>
-                </ul>
-            </Nav>
-        </ShortlyHeader>
-    )
-}
