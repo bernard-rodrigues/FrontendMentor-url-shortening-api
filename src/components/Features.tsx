@@ -3,20 +3,17 @@ import iconBrandRecognition from '../assets/images/icon-brand-recognition.svg'
 import iconDetailedRecords from '../assets/images/icon-detailed-records.svg'
 import iconFullyCustomizable from '../assets/images/icon-fully-customizable.svg'
 import styled from "styled-components"
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 
 const FeaturesSection = styled.section`
     background-color: ${props => props.theme.grayTransparent};
-    padding: 167px 24px 80px 24px;
-    position: relative;
+    padding: 0px 24px 80px 24px;
 
     form{
         min-height: 160px;
-        width: calc(100% - 48px);
-        padding: 25px 24px 22px 24px;
-        position: absolute;
-        top: 0;
-        transform: translateY(-50%);
+        width: 100%;
+        padding: 24px;
+        transform: translateY(-80px);
         background-color: ${props => props.theme.darkViolet};
         background-image: url(${bgShortenMobile});
         background-repeat: no-repeat;
@@ -44,9 +41,22 @@ const FeaturesSection = styled.section`
             }
         }
 
+        span{
+            color: ${props => props.theme.red};
+            font-style: italic;
+            font-size: 11.7px;
+            margin-top: 5px;
+            margin-bottom: 14px;
+            display: none;
+
+            &.show{
+                display: inline;
+            }
+        }
+
         button{
             width: 100%;
-            height: 49px;
+            height: 48px;
             border-radius: 5px;
             background-color: ${props => props.theme.cyan};
             color: #fff;
@@ -60,6 +70,7 @@ const FeaturesSection = styled.section`
         text-align: center;
         font-weight: ${props => props.theme.bold};
         color: ${props => props.theme.veryDarkBlue};
+        margin-top: -7px;
     }
 
     p{
@@ -120,10 +131,18 @@ const FeatureSeparator = styled.div`
 `
 
 export function Features(){
-    const [ link, setLink ] = useState('')
+    const inputRef = useRef(null);
+    const [ inputOnFocus, setInputOnFocus ] = useState(false);
+
+    const [ link, setLink ] = useState('');
 
     function formSubmit(e: React.FormEvent){
         e.preventDefault()
+    }
+
+    function checkURL(url: string){
+        const regex = /^(http|https|ftp):\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(:[a-zA-Z0-9]*)?\/?([a-zA-Z0-9\-\._\?\,\'\/\\\+&amp;%\$#\=~])*$/;
+        return regex.test(url)
     }
 
     return(
@@ -134,9 +153,15 @@ export function Features(){
                     name="link" 
                     placeholder="Shorten a link here..."
                     value={link}
+                    ref={inputRef}
+                    onFocus={() => setInputOnFocus(true)}
+                    onBlur={() => setInputOnFocus(false)}
                     onChange={(event) => setLink(event.target.value)}
                     onSubmit={formSubmit}
                 />
+                
+                <span className={ inputOnFocus && !checkURL(link) ? "show" : ""}>Please add a link</span>
+                
                 <button type="submit">Shorten It!</button>
             </form>
             <h3>Advanced Statistics</h3>
