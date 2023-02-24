@@ -59,6 +59,11 @@ export const FeaturesSection = styled.section`
             color: #fff;
             font-weight: ${props => props.theme.bold};
             font-size: 18px;
+
+            &.disabled{
+                cursor: not-allowed;
+                background-color: ${props => props.theme.gray};
+            }
         }
     }
 
@@ -89,12 +94,14 @@ export const ShortenedContainer = styled.div`
         background-color: #fff;
         transform: translateY(-80px);
         margin-bottom: 24px;
-        
+
         &:first-child{
             font-size: 15.95px;
             color: ${props => props.theme.veryDarkBlue};
             margin-bottom: 1px;
             height: 48px;
+            border-radius: 5px 5px 0 0;
+
         }
 
         &:nth-child(2){
@@ -102,6 +109,16 @@ export const ShortenedContainer = styled.div`
             flex-direction: column;
             justify-content: space-between;
             height: 106px;
+            border-radius: 0 0 5px 5px;
+
+            .shortenedLink{
+                padding: 0;
+                transform: translate(0,0);
+                margin-bottom: 0;
+                display: flex;
+                justify-content: space-between;
+                
+            }
 
             a{
                 color: ${props => props.theme.cyan};

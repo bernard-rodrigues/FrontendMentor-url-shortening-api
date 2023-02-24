@@ -1,9 +1,11 @@
 import iconBrandRecognition from '../../assets/images/icon-brand-recognition.svg'
 import iconDetailedRecords from '../../assets/images/icon-detailed-records.svg'
 import iconFullyCustomizable from '../../assets/images/icon-fully-customizable.svg'
-import React, { useRef, useState } from 'react'
+import { FormEvent, useEffect, useRef, useState } from 'react'
 import { FeatureContainer, FeatureSeparator, FeaturesSection, ImgContainer, ShortenedContainer } from './styles';
 import CopyToClipboard from 'react-copy-to-clipboard'
+import { shorten } from '../../lib/axios';
+import { DeleteForever } from '@mui/icons-material';
 
 interface Shortened{
     link: string,
@@ -16,10 +18,31 @@ export function Features(){
     const [ inputOnFocus, setInputOnFocus ] = useState(false);
 
     const [ link, setLink ] = useState('');
-    const [shortenedLinks, setShortenedLinks ] = useState<Shortened[]>([]);
+    const [shortenedLinks, setShortenedLinks ] = useState<Shortened[]>(checkLocalStorage());
 
-    function formSubmit(e: React.FormEvent){
-        e.preventDefault()
+    function checkLocalStorage(){
+        if(localStorage.getItem("shortenedLinks") !== null){
+            return JSON.parse(localStorage.getItem("shortenedLinks")!).map((shortenedLink: Shortened) => {
+                return {...shortenedLink, copied: false}
+            })
+        }return []
+    }
+
+    useEffect(() => {
+        localStorage.setItem("shortenedLinks", JSON.stringify(shortenedLinks))
+    }, [shortenedLinks])
+
+    async function formSubmit(event: FormEvent){
+        event.preventDefault()
+        
+        const shortenedLink = await shorten(link)
+        console.log(shortenedLink)
+        
+        setShortenedLinks(prevState => [...prevState, {
+            link: link,
+            shortenedLink: shortenedLink,
+            copied: false
+        }])
     }
 
     function checkURL(url: string){
@@ -42,9 +65,13 @@ export function Features(){
         )
     }
 
+    function removeLink(link: string){
+        setShortenedLinks(shortenedLinks.filter(shortenedLink => shortenedLink.link !== link))
+    }
+
     return(
         <FeaturesSection>
-            <form>
+            <form onSubmit={formSubmit}>
                 <input 
                     type="text" 
                     name="link" 
@@ -54,14 +81,18 @@ export function Features(){
                     onFocus={() => setInputOnFocus(true)}
                     onBlur={() => setInputOnFocus(false)}
                     onChange={(event) => setLink(event.target.value)}
-                    onSubmit={formSubmit}
                 />
                 
                 <span className={ (inputOnFocus && !checkURL(link)) || (!checkURL(link) && link.length > 0) ? "show" : ""}>
                     Please add a link
                 </span>
                 
-                <button type="submit">Shorten It!</button>
+                <button 
+                    className={ link.length == 0 || (inputOnFocus && !checkURL(link)) || (!checkURL(link) && link.length > 0) ? "disabled" : ""}
+                    type={ link.length == 0 || (inputOnFocus && !checkURL(link)) || (!checkURL(link) && link.length > 0) ? "button" : "submit"}
+                >
+                    Shorten It!
+                </button>
             </form>
 
             { shortenedLinks && shortenedLinks.map((shortenedLink, index) => (
@@ -76,8 +107,10 @@ export function Features(){
                         </span>
                     </div>
                     <div>
-                        
-                        <a href={shortenedLink.shortenedLink}>{shortenedLink.shortenedLink}</a>
+                        <div className="shortenedLink">
+                            <a href={'https://' + shortenedLink.shortenedLink} target="_blank">{shortenedLink.shortenedLink}</a>
+                            <DeleteForever onClick={() => removeLink(shortenedLink.link)} />
+                        </div>
                         <CopyToClipboard 
                             text={shortenedLink.shortenedLink}
                             onCopy={() => informCopied(shortenedLink.link)}

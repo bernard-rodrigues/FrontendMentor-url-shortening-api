@@ -17,6 +17,7 @@ export const BoostContainer = styled.section`
         font-weight: ${props => props.theme.bold};
         color: #fff;
         font-size: 26.6px;
+        text-align: center;
     }
 `
 

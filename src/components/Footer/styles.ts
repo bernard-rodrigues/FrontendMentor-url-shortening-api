@@ -3,6 +3,7 @@ import styled from "styled-components"
 export const FooterSection = styled.footer`
     background-color: ${props => props.theme.veryDarkViolet};
     padding: 44px 0 57px 0;
+    width: 100%;
 `
 export const FooterTitle = styled.h2`
     color: #fff;

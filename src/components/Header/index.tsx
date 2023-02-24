@@ -16,8 +16,8 @@ export function Header(){
             <img src={logo} alt="Shortly logo" />
             
             { navIsOpen 
-            ? <CloseIcon fontSize="large" color="inherit" onClick={toggleNavIsOpen}/> 
-            : <MenuIcon fontSize="large" color="inherit" onClick={toggleNavIsOpen}/>
+            ? <CloseIcon id="x" fontSize="large" color="inherit" onClick={toggleNavIsOpen}/> 
+            : <MenuIcon id="hamburger" fontSize="large" color="inherit" onClick={toggleNavIsOpen}/>
             }
             
             <Nav className={navIsOpen ? "show" : ""}>
