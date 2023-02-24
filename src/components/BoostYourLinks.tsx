@@ -4,7 +4,7 @@ import { Button } from "./Presentation"
 
 const BoostContainer = styled.section`
     width: 100%;
-    height: 301px;
+    height: 300px;
     background-image: url(${bgBoostMobile});
     background-color: ${props => props.theme.darkViolet};
     display: flex;

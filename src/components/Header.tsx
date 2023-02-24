@@ -25,26 +25,34 @@ const Nav = styled.nav`
     transition: transform 1s;
     z-index: 10;
 
+    ul{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        transition: opacity 3s, transform 1s;
+        opacity: 0;
+        transform: translateX(100%);
+
+        li{
+            width: 100%;
+            text-align: center;
+            color: #fff;
+            font-weight: ${props => props.theme.extraBold};
+            font-size: 19px;
+        }
+    }
+
     &.show{
         transform: translateX(0);
+
+        ul{
+            opacity: 1;
+            transform: translateX(0);
+        }
     }
-`
-
-const Ul = styled.ul`
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-`
-
-const Li = styled.li`
-    width: 100%;
-    text-align: center;
-    color: #fff;
-    font-weight: ${props => props.theme.extraBold};
-    font-size: 19px;
 `
 
 const Divider = styled.div`
@@ -75,16 +83,16 @@ export function Header(){
             <img src={logo} alt="Shortly logo" />
             <MenuIcon fontSize='large' color='inherit' onClick={toggleNavIsOpen}/>
             <Nav className={navIsOpen ? "show" : ""}>
-                <Ul>
-                    <Li>Features</Li>
-                    <Li>Pricing</Li>
-                    <Li>Resources</Li>
+                <ul>
+                    <li>Features</li>
+                    <li>Pricing</li>
+                    <li>Resources</li>
 
-                    <Li><Divider /></Li>
+                    <li><Divider /></li>
 
-                    <Li>Login</Li>
-                    <Li><SignUpButton>SignUp</SignUpButton></Li>
-                </Ul>
+                    <li>Login</li>
+                    <li><SignUpButton>SignUp</SignUpButton></li>
+                </ul>
             </Nav>
         </ShortlyHeader>
     )
