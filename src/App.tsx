@@ -21,6 +21,9 @@ export function App() {
     // Secondary
     red: 'hsl(0, 87%, 67%)',
 
+    // with transparency
+    redTransparent: 'hsla(0, 87%, 67%, 0.5)',
+
     // Neutral
     gray: 'hsl(0, 0%, 75%)',
     grayishViolet: 'hsl(257, 7%, 63%)',

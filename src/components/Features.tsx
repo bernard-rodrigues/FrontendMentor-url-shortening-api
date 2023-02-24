@@ -3,65 +3,74 @@ import iconBrandRecognition from '../assets/images/icon-brand-recognition.svg'
 import iconDetailedRecords from '../assets/images/icon-detailed-records.svg'
 import iconFullyCustomizable from '../assets/images/icon-fully-customizable.svg'
 import styled from "styled-components"
+import React, { useState } from 'react'
 
 const FeaturesSection = styled.section`
     background-color: ${props => props.theme.grayTransparent};
     padding: 167px 24px 80px 24px;
     position: relative;
-`
 
-const ShortenForm = styled.form`
-    height: 160px;
-    width: calc(100% - 48px);
-    padding: 25px 24px 22px 24px;
-    position: absolute;
-    top: 0;
-    transform: translateY(-50%);
-    background-color: ${props => props.theme.darkViolet};
-    background-image: url(${bgShortenMobile});
-    background-repeat: no-repeat;
-    background-position: top right;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-`
+    form{
+        min-height: 160px;
+        width: calc(100% - 48px);
+        padding: 25px 24px 22px 24px;
+        position: absolute;
+        top: 0;
+        transform: translateY(-50%);
+        background-color: ${props => props.theme.darkViolet};
+        background-image: url(${bgShortenMobile});
+        background-repeat: no-repeat;
+        background-position: top right;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
 
-const ShortenInput = styled.input`
-    width: 100%;
-    height: 48px;
-    border-radius: 5px;
-    padding: 17px;
-    font-weight: ${props => props.theme.medium};
-    font-size: 15.9px;
-`
+        input{
+            width: 100%;
+            height: 48px;
+            border-radius: 5px;
+            padding: 17px;
+            font-weight: ${props => props.theme.medium};
+            font-size: 15.9px;
+            color: ${props => props.theme.veryDarkBlue};
 
-const ShortenSubmit = styled.button`
-    width: 100%;
-    height: 49px;
-    border-radius: 5px;
-    background-color: ${props => props.theme.cyan};
-    color: #fff;
-    font-weight: ${props => props.theme.bold};
-    font-size: 18px;
-`
+            &:focus{
+                outline: ${props => props.theme.red} 3px solid;
 
-const H3 = styled.h3`
-    font-size: 26.9px;
-    text-align: center;
-    font-weight: ${props => props.theme.bold};
-    color: ${props => props.theme.veryDarkBlue};
+                &::placeholder{
+                    color: ${props => props.theme.redTransparent};
+                }
+            }
+        }
 
-`
+        button{
+            width: 100%;
+            height: 49px;
+            border-radius: 5px;
+            background-color: ${props => props.theme.cyan};
+            color: #fff;
+            font-weight: ${props => props.theme.bold};
+            font-size: 18px;
+        }
+    }
 
-const P = styled.p`
-    text-align: center;
-    color: ${props => props.theme.grayishViolet};
-    font-weight: ${props => props.theme.medium};
-    font-size: 16.3px;
-    margin-top: 19px;
-    margin-bottom: 89px;
-    line-height: 28px;
+    h3{
+        font-size: 26.9px;
+        text-align: center;
+        font-weight: ${props => props.theme.bold};
+        color: ${props => props.theme.veryDarkBlue};
+    }
+
+    p{
+        text-align: center;
+        color: ${props => props.theme.grayishViolet};
+        font-weight: ${props => props.theme.medium};
+        font-size: 16.3px;
+        margin-top: 19px;
+        margin-bottom: 89px;
+        line-height: 28px;
+    }
 `
 
 const FeatureContainer = styled.div`
@@ -70,6 +79,22 @@ const FeatureContainer = styled.div`
     background-color: #fff;
     position: relative;
     border-radius: 5px;
+
+    h4{
+        text-align: center;
+        font-weight: ${props => props.theme.bold};
+        color: ${props => props.theme.veryDarkBlue};
+        font-size: 21.8px;
+        padding-top: 77px;
+    }
+
+    p{
+        text-align: center;
+        padding: 0 33px;
+        margin-top: 16px;
+        font-size: 15px;
+        color: ${props => props.theme.grayishViolet};
+    }
 `
 
 const ImgContainer = styled.div`
@@ -85,21 +110,6 @@ const ImgContainer = styled.div`
     justify-content: center;
     align-items: center;
 `
-const H4 = styled.h4`
-    text-align: center;
-    font-weight: ${props => props.theme.bold};
-    color: ${props => props.theme.veryDarkBlue};
-    font-size: 21.8px;
-    padding-top: 77px;
-`
-
-const FeatureP = styled.p`
-    text-align: center;
-    padding: 0 33px;
-    margin-top: 16px;
-    font-size: 15px;
-    color: ${props => props.theme.grayishViolet};
-`
 
 const FeatureSeparator = styled.div`
     height: 92px;
@@ -110,24 +120,38 @@ const FeatureSeparator = styled.div`
 `
 
 export function Features(){
+    const [ link, setLink ] = useState('')
+
+    function formSubmit(e: React.FormEvent){
+        e.preventDefault()
+    }
+
     return(
         <FeaturesSection>
-            <ShortenForm>
-                <ShortenInput type="text" name="link" placeholder="Shorten a link here..." />
-                <ShortenSubmit type="submit">Shorten It!</ShortenSubmit>
-            </ShortenForm>
-            <H3>Advanced Statistics</H3>
-            <P>Track how your links are performing across the web with our advanced statistics dashboard.</P>
+            <form>
+                <input 
+                    type="text" 
+                    name="link" 
+                    placeholder="Shorten a link here..."
+                    value={link}
+                    onChange={(event) => setLink(event.target.value)}
+                    onSubmit={formSubmit}
+                />
+                <button type="submit">Shorten It!</button>
+            </form>
+            <h3>Advanced Statistics</h3>
+            <p>Track how your links are performing across the web with our advanced statistics dashboard.</p>
             
             <FeatureContainer>
                 <ImgContainer>
                     <img src={iconBrandRecognition} alt="Brand Recognition Icon" />
                 </ImgContainer>
-                <H4>Brand Recognition</H4>
-                <FeatureP>
+                
+                <h4>Brand Recognition</h4>
+                <p>
                     Boost your brand recognition with each link. Generic links don't mean a thing.
                     Branded links help instil confidence in your content.    
-                </FeatureP>
+                </p>
             </FeatureContainer>
 
             <FeatureSeparator />
@@ -136,12 +160,13 @@ export function Features(){
                 <ImgContainer>
                     <img src={iconDetailedRecords} alt="Detailed Records Icon" />
                 </ImgContainer>
-                <H4>Detailed Records</H4>
-                <FeatureP>
+                
+                <h4>Detailed Records</h4>
+                <p>
                     Gain insights into who is clicking you links.
                     Knowing when and where people engage with your content
                     helps inform better decisions.    
-                </FeatureP>
+                </p>
             </FeatureContainer>
 
             <FeatureSeparator />
@@ -150,11 +175,12 @@ export function Features(){
                 <ImgContainer>
                     <img src={iconFullyCustomizable} alt="Fully Customizable Icon" />
                 </ImgContainer>
-                <H4>Fully Customizable</H4>
-                <FeatureP>
+                
+                <h4>Fully Customizable</h4>
+                <p>
                     Improve brand awareness and content discoverability through
                     customizable links, supercharging audience engagement.
-                </FeatureP>
+                </p>
             </FeatureContainer>
         </FeaturesSection>
     )

@@ -12,6 +12,12 @@ const BoostContainer = styled.section`
     justify-content: center;
     align-items: center;
     gap: 11px;
+
+    h2{
+        font-weight: ${props => props.theme.bold};
+        color: #fff;
+        font-size: 26.6px;
+    }
 `
 
 const BoostButton = styled(Button)`
@@ -19,16 +25,10 @@ const BoostButton = styled(Button)`
     transform: translateY(6px);
 `
 
-const H2 = styled.h2`
-    font-weight: ${props => props.theme.bold};
-    color: #fff;
-    font-size: 26.6px;
-`
-
 export function BoostYourLinks(){
     return(
         <BoostContainer>
-            <H2>Boost your links today</H2>
+            <h2>Boost your links today</h2>
             <BoostButton>Get Started</BoostButton>
         </BoostContainer>
     )

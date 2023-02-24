@@ -1,6 +1,7 @@
 import logo from '../assets/images/logo.svg'
 import styled from "styled-components"
 import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 import { useState } from 'react';
 
 const ShortlyHeader = styled.header`
@@ -32,7 +33,7 @@ const Nav = styled.nav`
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
-        transition: opacity 3s, transform 1s;
+        transition: opacity 2s, transform 1s;
         opacity: 0;
         transform: translateX(100%);
 
@@ -81,7 +82,12 @@ export function Header(){
     return(
         <ShortlyHeader>
             <img src={logo} alt="Shortly logo" />
-            <MenuIcon fontSize='large' color='inherit' onClick={toggleNavIsOpen}/>
+            
+            { navIsOpen 
+            ? <CloseIcon fontSize="large" color="inherit" onClick={toggleNavIsOpen}/> 
+            : <MenuIcon fontSize="large" color="inherit" onClick={toggleNavIsOpen}/>
+            }
+            
             <Nav className={navIsOpen ? "show" : ""}>
                 <ul>
                     <li>Features</li>
