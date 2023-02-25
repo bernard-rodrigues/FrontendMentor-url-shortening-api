@@ -16,21 +16,21 @@ export function Footer(){
             />
             
             <LinkGroup>
-                <h4>Features</h4>
+                <h3>Features</h3>
                 <a href="#">Link Shortening</a>
                 <a href="#">Branded Links</a>
                 <a href="#">Analytics</a>
             </LinkGroup>
 
             <LinkGroup>
-                <h4>Resources</h4>
+                <h3>Resources</h3>
                 <a href="#">Blog</a>
                 <a href="#">Developers</a>
                 <a href="#">Support</a>
             </LinkGroup>
 
             <LinkGroup>
-                <h4>Company</h4>
+                <h3>Company</h3>
                 <a href="#">About</a>
                 <a href="#">Our Team</a>
                 <a href="#">Careers</a>
