@@ -16,21 +16,21 @@ export function Footer(){
             />
             
             <LinkGroup>
-                <h3>Features</h3>
+                <h4>Features</h4>
                 <a href="#">Link Shortening</a>
                 <a href="#">Branded Links</a>
                 <a href="#">Analytics</a>
             </LinkGroup>
 
             <LinkGroup>
-                <h3>Resources</h3>
+                <h4>Resources</h4>
                 <a href="#">Blog</a>
                 <a href="#">Developers</a>
                 <a href="#">Support</a>
             </LinkGroup>
 
             <LinkGroup>
-                <h3>Company</h3>
+                <h4>Company</h4>
                 <a href="#">About</a>
                 <a href="#">Our Team</a>
                 <a href="#">Careers</a>
@@ -39,19 +39,19 @@ export function Footer(){
 
             <SocialContainer>
                 <a href="#">
-                    <img color="inherit" src={facebook} alt="Facebook logo" />
+                    <img src={facebook} alt="Facebook logo" />
                 </a>
 
                 <a href="#">
-                    <img color="inherit" src={twitter} alt="Twitter logo" />
+                    <img src={twitter} alt="Twitter logo" />
                 </a>
 
                 <a href="#">
-                    <img color="inherit" src={pinterest} alt="Pinterest logo" />
+                    <img src={pinterest} alt="Pinterest logo" />
                 </a>
 
                 <a href="#">
-                    <img color="inherit" src={instagram} alt="Instagram logo" />
+                    <img src={instagram} alt="Instagram logo" />
                 </a>
             </SocialContainer>
 

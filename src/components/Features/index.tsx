@@ -149,7 +149,7 @@ export function Features(){
                         <img src={iconBrandRecognition} alt="Brand Recognition Icon" />
                     </ImgContainer>
                     
-                    <h4>Brand Recognition</h4>
+                    <h3>Brand Recognition</h3>
                     <p>
                         Boost your brand recognition with each link. Generic links don't mean a thing.
                         Branded links help instil confidence in your content.    
@@ -163,7 +163,7 @@ export function Features(){
                         <img src={iconDetailedRecords} alt="Detailed Records Icon" />
                     </ImgContainer>
                     
-                    <h4>Detailed Records</h4>
+                    <h3>Detailed Records</h3>
                     <p>
                         Gain insights into who is clicking you links.
                         Knowing when and where people engage with your content
@@ -178,7 +178,7 @@ export function Features(){
                         <img src={iconFullyCustomizable} alt="Fully Customizable Icon" />
                     </ImgContainer>
                     
-                    <h4>Fully Customizable</h4>
+                    <h3>Fully Customizable</h3>
                     <p>
                         Improve brand awareness and content discoverability through
                         customizable links, supercharging audience engagement.

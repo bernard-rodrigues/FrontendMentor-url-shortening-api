@@ -61,7 +61,7 @@ export const LinkGroup = styled.div`
     flex-direction: column;
     margin-bottom: 31px;
     
-    h3{
+    h4{
         color: #fff;
         font-weight: ${props => props.theme.bold};
         font-size: 15.5px;
@@ -79,7 +79,7 @@ export const LinkGroup = styled.div`
         margin-right: 0;
         min-width: 190px;
 
-        h3{
+        h4{
             margin: 0;
         }
 

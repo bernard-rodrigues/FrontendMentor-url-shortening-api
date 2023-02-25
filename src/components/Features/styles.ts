@@ -265,7 +265,7 @@ export const FeatureContainer = styled.div`
     border-radius: 5px;
     padding-top: 77px;
 
-    h4{
+    h3{
         text-align: center;
         font-weight: ${props => props.theme.bold};
         color: ${props => props.theme.veryDarkBlue};
@@ -284,7 +284,7 @@ export const FeatureContainer = styled.div`
         height: 269px;
         width: 351px;
 
-        h4{
+        h3{
             text-align: left;
             padding: 0 32px;
             width: 100%;
