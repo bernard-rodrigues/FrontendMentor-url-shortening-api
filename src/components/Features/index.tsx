@@ -44,13 +44,14 @@ export function Features(){
         event.preventDefault()
         
         const shortenedLink = await shorten(link)
-        console.log(shortenedLink)
         
         setShortenedLinks(prevState => [...prevState, {
             link: link,
             shortenedLink: shortenedLink,
             copied: false
         }])
+
+        setLink('');
     }
 
     function checkURL(url: string){
