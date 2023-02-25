@@ -129,46 +129,48 @@ export function Features(){
             <h3>Advanced Statistics</h3>
             <p>Track how your links are performing across the web with our advanced statistics dashboard.</p>
             
-            <FeatureContainer>
-                <ImgContainer>
-                    <img src={iconBrandRecognition} alt="Brand Recognition Icon" />
-                </ImgContainer>
-                
-                <h4>Brand Recognition</h4>
-                <p>
-                    Boost your brand recognition with each link. Generic links don't mean a thing.
-                    Branded links help instil confidence in your content.    
-                </p>
-            </FeatureContainer>
+            <div id="features">
+                <FeatureContainer>
+                    <ImgContainer>
+                        <img src={iconBrandRecognition} alt="Brand Recognition Icon" />
+                    </ImgContainer>
+                    
+                    <h4>Brand Recognition</h4>
+                    <p>
+                        Boost your brand recognition with each link. Generic links don't mean a thing.
+                        Branded links help instil confidence in your content.    
+                    </p>
+                </FeatureContainer>
 
-            <FeatureSeparator />
+                <FeatureSeparator />
 
-            <FeatureContainer>
-                <ImgContainer>
-                    <img src={iconDetailedRecords} alt="Detailed Records Icon" />
-                </ImgContainer>
-                
-                <h4>Detailed Records</h4>
-                <p>
-                    Gain insights into who is clicking you links.
-                    Knowing when and where people engage with your content
-                    helps inform better decisions.    
-                </p>
-            </FeatureContainer>
+                <FeatureContainer>
+                    <ImgContainer>
+                        <img src={iconDetailedRecords} alt="Detailed Records Icon" />
+                    </ImgContainer>
+                    
+                    <h4>Detailed Records</h4>
+                    <p>
+                        Gain insights into who is clicking you links.
+                        Knowing when and where people engage with your content
+                        helps inform better decisions.    
+                    </p>
+                </FeatureContainer>
 
-            <FeatureSeparator />
+                <FeatureSeparator />
 
-            <FeatureContainer>
-                <ImgContainer>
-                    <img src={iconFullyCustomizable} alt="Fully Customizable Icon" />
-                </ImgContainer>
-                
-                <h4>Fully Customizable</h4>
-                <p>
-                    Improve brand awareness and content discoverability through
-                    customizable links, supercharging audience engagement.
-                </p>
-            </FeatureContainer>
+                <FeatureContainer>
+                    <ImgContainer>
+                        <img src={iconFullyCustomizable} alt="Fully Customizable Icon" />
+                    </ImgContainer>
+                    
+                    <h4>Fully Customizable</h4>
+                    <p>
+                        Improve brand awareness and content discoverability through
+                        customizable links, supercharging audience engagement.
+                    </p>
+                </FeatureContainer>
+            </div>
         </FeaturesSection>
     )
 }

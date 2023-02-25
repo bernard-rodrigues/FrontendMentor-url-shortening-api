@@ -1,4 +1,5 @@
 import bgShortenMobile from '../../assets/images/bg-shorten-mobile.svg'
+import bgShortenDesktop from '../../assets/images/bg-shorten-desktop.svg'
 import styled from 'styled-components'
 
 export const FeaturesSection = styled.section`
@@ -84,6 +85,64 @@ export const FeaturesSection = styled.section`
         margin-bottom: 89px;
         line-height: 28px;
     }
+
+    @media only screen and (min-width: 600px) {
+        padding: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        form{
+            width: ${props => props.theme.desktopWidth};
+            height: 168px;
+            flex-direction: row;
+            align-items: center;
+            gap: 24px;
+            padding: 52px 64px;
+            background-image: url(${bgShortenDesktop});
+
+            input{
+                width: 770px;
+                height: 100%;
+                padding: 32px;
+                font-size: 19.9px;
+            }
+
+            button{
+                width: 189px;
+                height: 100%;
+                font-size: 20px;
+            }
+        }
+
+        h3{
+            font-size: 38.2px;
+            margin-top: 15px;
+        }
+
+        p{
+            width: 28%;
+            font-size: 18.2px;
+            margin-top: 11px;
+            line-height: 32px;
+        }
+
+        #features{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 53px;
+
+            div:first-child{
+                transform: translateY(-44px);
+            }
+
+            div:last-child{
+                transform: translateY(44px);
+            }
+        }
+    }
 `
 
 export const ShortenedContainer = styled.div`
@@ -145,13 +204,13 @@ export const FeatureContainer = styled.div`
     background-color: #fff;
     position: relative;
     border-radius: 5px;
+    padding-top: 77px;
 
     h4{
         text-align: center;
         font-weight: ${props => props.theme.bold};
         color: ${props => props.theme.veryDarkBlue};
         font-size: 21.8px;
-        padding-top: 77px;
     }
 
     p{
@@ -160,6 +219,25 @@ export const FeatureContainer = styled.div`
         margin-top: 16px;
         font-size: 15px;
         color: ${props => props.theme.grayishViolet};
+    }
+
+    @media only screen and (min-width: 600px) {
+        height: 269px;
+        width: 351px;
+        margin-bottom: 164px;
+
+        h4{
+            text-align: left;
+            padding: 0 32px;
+            width: 100%;
+        }
+
+        p{
+            text-align: left;
+            width: 100%;
+            margin-top: 14px;
+            line-height: 26px;
+        }
     }
 `
 
@@ -175,6 +253,12 @@ export const ImgContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media only screen and (min-width: 600px) {
+        left: 32px;
+        transform: translate(0, -50%);
+
+    }
 `
 
 export const FeatureSeparator = styled.div`
@@ -182,5 +266,12 @@ export const FeatureSeparator = styled.div`
     width: 8px;
     background-color: ${props => props.theme.cyan};
     margin-left: 50%;
-    transform: translate(-50%);
+    transform: translateX(-50%);
+
+    @media only screen and (min-width: 600px) {
+        width: 30px;
+        height: 8px;
+        margin-left: 0;
+        transform: translateX(0);
+    }
 `
