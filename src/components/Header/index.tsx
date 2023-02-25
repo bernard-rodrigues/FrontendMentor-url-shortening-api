@@ -31,7 +31,7 @@ export function Header(){
                 
                 <ul id="menu2">
                     <li>Login</li>
-                    <li><SignUpButton>SignUp</SignUpButton></li>
+                    <li><SignUpButton>Sign Up</SignUpButton></li>
 
                 </ul>
             </Nav>

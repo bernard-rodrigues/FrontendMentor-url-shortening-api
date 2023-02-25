@@ -11,10 +11,17 @@ export const ShortlyHeader = styled.header`
 
     @media only screen and (min-width: 600px) {
         margin-top: 55px;
-        width: 1110px;
+        width: 1112px;
+        padding: 0;
+        
 
         #hamburger, #x{
             display: none;
+        }
+
+        img{
+            margin-right: 45px;
+            margin-left: 3px;
         }
     }
     `
@@ -55,6 +62,15 @@ export const Nav = styled.nav`
         }
     }
 
+    &.show{
+        transform: translateX(0);
+
+        ul{
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
     @media only screen and (min-width: 600px) {
         position: relative;
         top: 0;
@@ -68,10 +84,30 @@ export const Nav = styled.nav`
             transform: translateX(0);
             opacity: 1;
             flex-direction: row;
+            justify-content: start;
 
             li{
-                margin-bottom: 0;
+                margin: 0;
+                width: fit-content;
+                font-size: 15px;
+                text-align: left;
                 color: ${props => props.theme.grayishViolet};
+            }
+
+            &#menu1{
+                margin-left: 1px;
+
+                & li{
+                    margin-right: 29px;
+
+                    &:last-child{
+                        margin-left: 3px;
+                    }
+                }
+            }
+
+            &#menu2{
+                justify-content: end;
             }
 
             &#menu2 li:first-child{
@@ -85,64 +121,6 @@ export const Nav = styled.nav`
 
         .divider{
             display: none;
-        }
-        
-        /* position: relative;
-        top: 50%;
-        width: 100%;
-        height: fit-content;
-        background: none;
-        border-radius: none;
-        padding: 0;
-        transform: translateX(0);
-        transition: none;
-        z-index: 0;
-        display: flex;
-        align-items: center;
-
-        .divider{
-            display: none;
-        }
-
-        ul{
-            height: 100%;
-            flex-direction: row;
-            transition: none;
-            opacity: 1;
-            transform: translateX(0);
-            margin-left: 2px;
-
-            li{
-                height: 100%;
-                color: ${props => props.theme.grayishViolet};
-                font-weight: ${props => props.theme.bold};
-                font-size: 15px;
-            }
-
-            &#menu1{
-                display: flex;
-                justify-content: start;
-                border: 1px solid red;
-            }
-
-            &#menu2{
-                & li:first-child{
-                    margin-top: 0px;
-                }
-
-                & li:last-child{
-                    color: #fff;
-                }
-            }
-        } */
-    }
-
-    &.show{
-        transform: translateX(0);
-
-        ul{
-            opacity: 1;
-            transform: translateX(0);
         }
     }
 `
@@ -164,5 +142,8 @@ export const SignUpButton = styled.button`
 
     @media only screen and (min-width: 600px) {
         margin-top: 0;
+        margin-left: 37px;
+        width: 105px;
+        font-size: 14.2px;
     }
 `
