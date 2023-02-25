@@ -58,8 +58,39 @@ export const Nav = styled.nav`
     @media only screen and (min-width: 600px) {
         position: relative;
         top: 0;
+        transform: translateX(0);
+        display: flex;
+        height: fit-content;
+        padding: 0;
+        background: none;
+
+        ul{
+            transform: translateX(0);
+            opacity: 1;
+            flex-direction: row;
+
+            li{
+                margin-bottom: 0;
+                color: ${props => props.theme.grayishViolet};
+            }
+
+            &#menu2 li:first-child{
+                margin-top: 0px;
+            }
+
+            &#menu2 li:last-child{
+                color: #fff;
+            }
+        }
+
+        .divider{
+            display: none;
+        }
+        
+        /* position: relative;
+        top: 50%;
         width: 100%;
-        height: 0px;
+        height: fit-content;
         background: none;
         border-radius: none;
         padding: 0;
@@ -88,6 +119,12 @@ export const Nav = styled.nav`
                 font-size: 15px;
             }
 
+            &#menu1{
+                display: flex;
+                justify-content: start;
+                border: 1px solid red;
+            }
+
             &#menu2{
                 & li:first-child{
                     margin-top: 0px;
@@ -97,7 +134,7 @@ export const Nav = styled.nav`
                     color: #fff;
                 }
             }
-        }
+        } */
     }
 
     &.show{
@@ -124,4 +161,8 @@ export const SignUpButton = styled.button`
     background-color: ${props => props.theme.cyan};
     border-radius: 25px;
     margin-top: -5px;
+
+    @media only screen and (min-width: 600px) {
+        margin-top: 0;
+    }
 `
