@@ -50,7 +50,10 @@ export function App() {
     medium: 500,
     semiBold: 600,
     bold: 700,
-    extraBold: 800
+    extraBold: 800,
+
+    // SIZING
+    desktopWidth: '1110px'
   }
   
   return (

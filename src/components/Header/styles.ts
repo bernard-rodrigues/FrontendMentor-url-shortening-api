@@ -10,8 +10,8 @@ export const ShortlyHeader = styled.header`
     color: ${props => props.theme.grayishViolet};
 
     @media only screen and (min-width: 600px) {
-        margin-top: 55px;
-        width: 1112px;
+        margin-top: 51px;
+        width: ${props => props.theme.desktopWidth};
         padding: 0;
         
 
@@ -87,7 +87,8 @@ export const Nav = styled.nav`
             justify-content: start;
 
             li{
-                margin: 0;
+                margin-bottom: 0;
+                margin-top: -2px;
                 width: fit-content;
                 font-size: 15px;
                 text-align: left;
@@ -144,6 +145,7 @@ export const SignUpButton = styled.button`
         margin-top: 0;
         margin-left: 37px;
         width: 105px;
+        height: 41px;
         font-size: 14.2px;
     }
 `

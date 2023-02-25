@@ -10,10 +10,10 @@ export const PresentationSection = styled.section`
 
     img{
         position: absolute;
+        top: 22px;
         left: 24px;
         min-width: 498px;
         height: 344px;
-        top: 22px;
     }
 
     h2{
@@ -32,6 +32,40 @@ export const PresentationSection = styled.section`
         font-weight: ${props => props.theme.medium};
         margin-top: 12px;
         line-height: 30px;
+    }
+
+    @media only screen and (min-width: 600px) {
+        align-items: flex-start;
+        width: ${props => props.theme.desktopWidth};
+        padding: 0;
+        overflow-x: visible;
+
+        h2{
+            text-align: left;
+            font-size: 80px;
+            line-height: 90px;
+            margin-top: 145px;
+            width: 55%;
+        }
+
+        img{
+            top: 78px;
+            left: 667px;
+            width: 730px;
+            height: 480px;
+        }
+
+        p{
+            margin-top: -1px;
+            text-align: left;
+            width: 55%;
+            font-size: 22px;
+            line-height: 35.5px;
+        }
+
+        #get-started{
+            margin-top: 37px;
+        }
     }
 `
 
