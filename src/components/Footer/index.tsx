@@ -2,13 +2,18 @@ import facebook from "../../assets/images/icon-facebook.svg"
 import twitter from "../../assets/images/icon-twitter.svg"
 import pinterest from "../../assets/images/icon-pinterest.svg"
 import instagram from "../../assets/images/icon-instagram.svg"
+import logoWhite from "../../assets/images/logo-white.svg"
 
-import { FooterSection, FooterTitle, LinkGroup, SocialContainer } from "./styles";
+import { FooterSection, LinkGroup, SocialContainer } from "./styles";
 
 export function Footer(){
     return(
         <FooterSection>
-            <FooterTitle>Shortly</FooterTitle>
+            <img 
+                id="footer-logo"
+                src={logoWhite} 
+                alt="Shortly logo, white version, in contrast with the dark background" 
+            />
             
             <LinkGroup>
                 <h5>Features</h5>

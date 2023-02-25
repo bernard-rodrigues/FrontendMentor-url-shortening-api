@@ -133,6 +133,7 @@ export const FeaturesSection = styled.section`
             justify-content: center;
             align-items: center;
             margin-top: 53px;
+            margin-bottom: 164px;
 
             div:first-child{
                 transform: translateY(-44px);
@@ -224,7 +225,6 @@ export const FeatureContainer = styled.div`
     @media only screen and (min-width: 600px) {
         height: 269px;
         width: 351px;
-        margin-bottom: 164px;
 
         h4{
             text-align: left;

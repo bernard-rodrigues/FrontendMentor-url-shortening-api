@@ -2,15 +2,28 @@ import styled from "styled-components"
 
 export const FooterSection = styled.footer`
     background-color: ${props => props.theme.veryDarkViolet};
-    padding: 44px 0 57px 0;
+    padding: 56px 0 57px 0;
     width: 100%;
-`
-export const FooterTitle = styled.h2`
-    color: #fff;
-    font-size: 32.5px;
-    font-weight: ${props => props.theme.bold};
-    text-align: center;
-    margin-bottom: 43px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img{
+        height: auto;
+        width: 120px;
+        margin-bottom: 47px;
+    }
+
+    @media only screen and (min-width: 600px) {
+        flex-direction: row;
+        padding: 75px calc((100% - ${props => props.theme.desktopWidth})/2) 58px calc((100% - ${props => props.theme.desktopWidth})/2);
+        align-items: flex-start;
+
+        #footer-logo{
+            transform: translateX(-3px);
+            margin-right: 259px;
+        }
+    }
 `
 
 export const LinkGroup = styled.div`
@@ -31,6 +44,16 @@ export const LinkGroup = styled.div`
         font-size: 14.5px;
         line-height: 33px;
     }
+
+    @media only screen and (min-width: 600px) {
+        text-align: left;
+        margin-right: 0;
+        min-width: 190px;
+
+        h5{
+            margin: 0;
+        }
+    }
 `
 
 export const SocialContainer = styled.div`
@@ -38,4 +61,11 @@ export const SocialContainer = styled.div`
     justify-content: center;
     gap: 22.7px;
     margin-top: 41px;
+
+    @media only screen and (min-width: 600px) {
+        justify-content: left;
+        gap: 24px;
+        margin-top: 0px;
+        transform: translate(-7px, -3px);
+    }
 `
