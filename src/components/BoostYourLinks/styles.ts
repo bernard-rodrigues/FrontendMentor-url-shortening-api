@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { Button } from "../Presentation/styles"
 import bgBoostMobile from "../../assets/images/bg-boost-mobile.svg"
+import bgBoostDesktop from "../../assets/images/bg-boost-desktop.svg"
 
 export const BoostContainer = styled.section`
     width: 100%;
@@ -18,6 +19,17 @@ export const BoostContainer = styled.section`
         color: #fff;
         font-size: 26.6px;
         text-align: center;
+    }
+
+    @media only screen and (min-width: 600px) {
+        height: 250px;
+        background-image: url(${bgBoostDesktop});
+        background-size: cover;
+
+        h2{
+            font-size: 37.8px;
+            transform: translateY(-5px);
+        }
     }
 `
 
