@@ -14,6 +14,10 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    main{
+      width: 100%;
+    }
   }
 `
 
@@ -63,9 +67,11 @@ export function App() {
     <ThemeProvider theme={theme}>
       <Container>
         <Header />
-        <Presentation />
-        <Features />
-        <BoostYourLinks />
+        <main>
+          <Presentation />
+          <Features />
+          <BoostYourLinks />
+        </main>
         <Footer />
       </Container>
     </ThemeProvider>

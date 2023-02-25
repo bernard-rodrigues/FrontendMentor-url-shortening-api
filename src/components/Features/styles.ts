@@ -68,7 +68,7 @@ export const FeaturesSection = styled.section`
         }
     }
 
-    h3{
+    h2{
         font-size: 26.9px;
         text-align: center;
         font-weight: ${props => props.theme.bold};
@@ -130,7 +130,7 @@ export const FeaturesSection = styled.section`
             }
         }
 
-        h3{
+        h2{
             font-size: 38.2px;
             margin-top: 15px;
         }

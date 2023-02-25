@@ -140,7 +140,7 @@ export function Features(){
                 </ShortenedContainer>
             ))}
 
-            <h3>Advanced Statistics</h3>
+            <h2>Advanced Statistics</h2>
             <p>Track how your links are performing across the web with our advanced statistics dashboard.</p>
             
             <div id="features">

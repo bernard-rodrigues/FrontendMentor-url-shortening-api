@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const PresentationSection = styled.main`
+export const PresentationSection = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -39,6 +39,7 @@ export const PresentationSection = styled.main`
         width: ${props => props.theme.desktopWidth};
         padding: 0;
         overflow-x: visible;
+        margin-left: calc((100% - ${props => props.theme.desktopWidth})/2);
 
         h1{
             text-align: left;
