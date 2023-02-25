@@ -9,12 +9,11 @@ export const ShortlyHeader = styled.header`
     align-items: center;
     color: ${props => props.theme.grayishViolet};
 
-    @media only screen and (min-width: 600px) {
+    @media only screen and (min-width: 1200px) {
         margin-top: 51px;
         width: ${props => props.theme.desktopWidth};
         padding: 0;
         
-
         #hamburger, #x{
             display: none;
         }
@@ -24,7 +23,7 @@ export const ShortlyHeader = styled.header`
             margin-left: 3px;
         }
     }
-    `
+`
 
 export const Nav = styled.nav`
     position: absolute;
@@ -71,7 +70,7 @@ export const Nav = styled.nav`
         }
     }
 
-    @media only screen and (min-width: 600px) {
+    @media only screen and (min-width: 1200px) {
         position: relative;
         top: 0;
         transform: translateX(0);
@@ -93,6 +92,12 @@ export const Nav = styled.nav`
                 font-size: 15px;
                 text-align: left;
                 color: ${props => props.theme.grayishViolet};
+                transition: color 0.2s;
+
+                &:hover{
+                    color: ${props => props.theme.veryDarkViolet};
+                    cursor: pointer;
+                }
             }
 
             &#menu1{
@@ -141,11 +146,16 @@ export const SignUpButton = styled.button`
     border-radius: 25px;
     margin-top: -5px;
 
-    @media only screen and (min-width: 600px) {
+    @media only screen and (min-width: 1200px) {
         margin-top: 0;
         margin-left: 37px;
         width: 105px;
         height: 41px;
         font-size: 14.2px;
+        transition: background-color 0.2s;
+
+        &:hover{
+            background-color: ${props => props.theme.cyanHover};
+        }
     }
 `

@@ -7,6 +7,7 @@ export const BoostContainer = styled.section`
     width: 100%;
     height: 300px;
     background-image: url(${bgBoostMobile});
+    background-size: cover;
     background-color: ${props => props.theme.darkViolet};
     display: flex;
     flex-direction: column;
@@ -21,7 +22,7 @@ export const BoostContainer = styled.section`
         text-align: center;
     }
 
-    @media only screen and (min-width: 600px) {
+    @media only screen and (min-width: 1200px) {
         height: 250px;
         background-image: url(${bgBoostDesktop});
         background-size: cover;

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const PresentationSection = styled.section`
+export const PresentationSection = styled.main`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,7 +16,7 @@ export const PresentationSection = styled.section`
         height: 344px;
     }
 
-    h2{
+    h1{
         font-weight: ${props => props.theme.bold};
         font-size: 40.2px;
         text-align: center;
@@ -34,13 +34,13 @@ export const PresentationSection = styled.section`
         line-height: 30px;
     }
 
-    @media only screen and (min-width: 600px) {
+    @media only screen and (min-width: 1200px) {
         align-items: flex-start;
         width: ${props => props.theme.desktopWidth};
         padding: 0;
         overflow-x: visible;
 
-        h2{
+        h1{
             text-align: left;
             font-size: 80px;
             line-height: 90px;
@@ -79,4 +79,9 @@ export const Button = styled.button`
     font-size: 20px;
     margin-top: 30px;
     margin-bottom: 168px;
+    transition: background-color 0.2s;
+
+    &:hover{
+        background-color: ${props => props.theme.cyanHover};
+    }
 `

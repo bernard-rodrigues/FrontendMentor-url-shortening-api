@@ -6,6 +6,7 @@ import { FeatureContainer, FeatureSeparator, FeaturesSection, ImgContainer, Shor
 import CopyToClipboard from 'react-copy-to-clipboard'
 import { shorten } from '../../lib/axios';
 import { DeleteForever } from '@mui/icons-material';
+import { Divider } from '../Header/styles';
 
 interface Shortened{
     link: string,
@@ -16,6 +17,7 @@ interface Shortened{
 export function Features(){
     const inputRef = useRef(null);
     const [ inputOnFocus, setInputOnFocus ] = useState(false);
+    const [ screenWidth, setScreenWidth ] = useState(innerWidth)
 
     const [ link, setLink ] = useState('');
     const [shortenedLinks, setShortenedLinks ] = useState<Shortened[]>(checkLocalStorage());
@@ -29,8 +31,14 @@ export function Features(){
     }
 
     useEffect(() => {
-        localStorage.setItem("shortenedLinks", JSON.stringify(shortenedLinks))
-    }, [shortenedLinks])
+        localStorage.setItem("shortenedLinks", JSON.stringify(shortenedLinks));
+    }, [shortenedLinks]);
+
+    useEffect(() => {
+        window.addEventListener('resize', () => {
+            setScreenWidth(innerWidth)
+        })
+    })
 
     async function formSubmit(event: FormEvent){
         event.preventDefault()
@@ -97,32 +105,37 @@ export function Features(){
 
             { shortenedLinks && shortenedLinks.map((shortenedLink, index) => (
                 <ShortenedContainer key={shortenedLink.shortenedLink + '-' + String(index)}>
-                    <div>
-                        <span>
-                            {
-                                shortenedLink.link.length <= 32 
+                    <div className="link">
+                        {
+                            screenWidth < 1200
+                            ?
+                                (shortenedLink.link.length <= 32 
                                 ? shortenedLink.link 
-                                : shortenedLink.link.slice(0,32) + '...'
-                            }
-                        </span>
+                                : shortenedLink.link.slice(0,32) + '...')
+                            :
+                                (shortenedLink.link.length <= 48 
+                                ? shortenedLink.link 
+                                : shortenedLink.link.slice(0,48) + '...')
+                        }
                     </div>
-                    <div>
-                        <div className="shortenedLink">
-                            <a href={'https://' + shortenedLink.shortenedLink} target="_blank">{shortenedLink.shortenedLink}</a>
-                            <DeleteForever onClick={() => removeLink(shortenedLink.link)} />
-                        </div>
-                        <CopyToClipboard 
-                            text={shortenedLink.shortenedLink}
-                            onCopy={() => informCopied(shortenedLink.link)}
+                        
+                    <Divider className="shortenedDivider"/>
+
+                    <div className="shortenedLink">
+                        <a href={'https://' + shortenedLink.shortenedLink} target="_blank">{'https://' + shortenedLink.shortenedLink}</a>
+                        <DeleteForever color="inherit" className="deleteIcon" onClick={() => removeLink(shortenedLink.link)} />
+                    </div>
+                    <CopyToClipboard 
+                        text={shortenedLink.shortenedLink}
+                        onCopy={() => informCopied(shortenedLink.link)}
+                    >
+                        <button 
+                            type="button"
+                            className={shortenedLink.copied ? "copied" : ""}
                         >
-                            <button 
-                                type="button"
-                                className={shortenedLink.copied ? "copied" : ""}
-                            >
-                                {shortenedLink.copied ? "Copied!" : "Copy"}
-                            </button>
-                        </CopyToClipboard>
-                    </div>
+                            {shortenedLink.copied ? "Copied!" : "Copy"}
+                        </button>
+                    </CopyToClipboard>
                 </ShortenedContainer>
             ))}
 

@@ -86,7 +86,7 @@ export const FeaturesSection = styled.section`
         line-height: 28px;
     }
 
-    @media only screen and (min-width: 600px) {
+    @media only screen and (min-width: 1200px) {
         padding: 0;
         width: 100%;
         display: flex;
@@ -109,10 +109,24 @@ export const FeaturesSection = styled.section`
                 font-size: 19.9px;
             }
 
+            span{
+                position: absolute;
+                bottom: 6px;
+                font-size: 15.7px;
+            }
+
             button{
                 width: 189px;
                 height: 100%;
                 font-size: 20px;
+                transition: background-color 0.2s;
+
+                &:hover{
+                    background-color: ${props => props.theme.cyanHover};
+                }
+                &.disabled:hover{
+                    background-color: ${props => props.theme.gray};
+                }
             }
         }
 
@@ -148,53 +162,97 @@ export const FeaturesSection = styled.section`
 
 export const ShortenedContainer = styled.div`
     width: 100%;
+    height: 156px;
+    background-color: #fff;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transform: translateY(-80px);
 
-    div{
-        padding: 12px 16px 18px 16px;
-        background-color: #fff;
-        transform: translateY(-80px);
-        margin-bottom: 24px;
+    .link{
+        padding: 0 16px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        color: ${props => props.theme.veryDarkBlue};
+    }
 
-        &:first-child{
-            font-size: 15.95px;
-            color: ${props => props.theme.veryDarkBlue};
-            margin-bottom: 1px;
-            height: 48px;
-            border-radius: 5px 5px 0 0;
+    .shortenedDivider{
+        transform: translateY(-7px);
+    }
 
+    .shortenedLink{
+        padding: 0 16px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        a{
+            color: ${props => props.theme.cyan};
+        }
+    }
+
+    button{
+        background-color: ${props => props.theme.cyan};
+        color: #fff;
+        font-weight: ${props => props.theme.bold};
+        height: 40px;
+        border-radius: 5px;
+        width: calc(100% - 32px);
+        margin: 4px 16px 18px 16px;
+        transition: background-color 0.2s;
+
+        &:hover{
+            background-color: ${props => props.theme.cyanHover};
         }
 
-        &:nth-child(2){
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 106px;
-            border-radius: 0 0 5px 5px;
+        &.copied, .copied:hover{
+            background-color: ${props => props.theme.darkViolet};
+        }
+    }
 
-            .shortenedLink{
-                padding: 0;
-                transform: translate(0,0);
-                margin-bottom: 0;
-                display: flex;
-                justify-content: space-between;
-                
-            }
+    @media only screen and (min-width: 1200px) {
+        flex-direction: row;
+        height: 74px;
+        align-items: center;
+        padding: 0 24px 0 17px;
+        margin-bottom: 22px;
+        width: ${props => props.theme.desktopWidth};
+
+        .link{
+            font-size: 20px;
+            min-width: 600px;
+        }
+
+        .shortenedLink{
+            justify-content: flex-end;
+            align-items: center;
+            padding: 0 19px;
 
             a{
-                color: ${props => props.theme.cyan};
+                font-size: 20px;
             }
 
-            button{
-                background-color: ${props => props.theme.cyan};
-                color: #fff;
-                font-weight: ${props => props.theme.bold};
-                height: 40px;
-                border-radius: 5px;
+            .deleteIcon{
+                margin-left: 10px;
+                transition: color 0.2s;
 
-                &.copied{
-                    background-color: ${props => props.theme.darkViolet};
+                &:hover{
+                    color: ${props => props.theme.red};
+                    cursor: pointer;
                 }
             }
+        }
+
+        .shortenedDivider{
+            display: none;
+        }
+
+        button{
+            min-width: 104px;
+            max-width: 104px;
+            margin: 0;
         }
     }
 `
@@ -222,7 +280,7 @@ export const FeatureContainer = styled.div`
         color: ${props => props.theme.grayishViolet};
     }
 
-    @media only screen and (min-width: 600px) {
+    @media only screen and (min-width: 1200px) {
         height: 269px;
         width: 351px;
 
@@ -254,7 +312,7 @@ export const ImgContainer = styled.div`
     justify-content: center;
     align-items: center;
 
-    @media only screen and (min-width: 600px) {
+    @media only screen and (min-width: 1200px) {
         left: 32px;
         transform: translate(0, -50%);
 
@@ -268,7 +326,7 @@ export const FeatureSeparator = styled.div`
     margin-left: 50%;
     transform: translateX(-50%);
 
-    @media only screen and (min-width: 600px) {
+    @media only screen and (min-width: 1200px) {
         width: 30px;
         height: 8px;
         margin-left: 0;

@@ -10,7 +10,7 @@ const Container = styled.div`
   overflow-x: hidden;
   font-family: ${props => props.theme.poppins};
 
-  @media only screen and (min-width: 600px) {
+  @media only screen and (min-width: 1200px) {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,6 +23,9 @@ export function App() {
     // Primary
     cyan: 'hsl(180, 66%, 49%)',
     darkViolet: 'hsl(257, 27%, 26%)',
+
+    //hover
+    cyanHover: 'hsl(180, 66%, 78%)',
 
     // Secondary
     red: 'hsl(0, 87%, 67%)',

@@ -38,11 +38,27 @@ export function Footer(){
             </LinkGroup>
 
             <SocialContainer>
-                <img src={facebook} alt="Facebook logo" />
-                <img src={twitter} alt="Twitter logo" />
-                <img src={pinterest} alt="Pinterest logo" />
-                <img src={instagram} alt="Instagram logo" />
+                <a href="#">
+                    <img color="inherit" src={facebook} alt="Facebook logo" />
+                </a>
+
+                <a href="#">
+                    <img color="inherit" src={twitter} alt="Twitter logo" />
+                </a>
+
+                <a href="#">
+                    <img color="inherit" src={pinterest} alt="Pinterest logo" />
+                </a>
+
+                <a href="#">
+                    <img color="inherit" src={instagram} alt="Instagram logo" />
+                </a>
             </SocialContainer>
+
+            <div id="about">
+                Challenge by <a href="https://frontendmentor.io/challenges" target="_blank">Frontend Mentor</a>.
+                Solution by <a href="https://www.frontendmentor.io/profile/bernard-rodrigues" target="_blank">Bernard Rodrigues</a>.
+            </div>
         </FooterSection>
     )
 }
