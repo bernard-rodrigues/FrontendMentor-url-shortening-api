@@ -10,6 +10,7 @@ export const ShortlyHeader = styled.header`
     color: ${props => props.theme.grayishViolet};
 
     @media only screen and (min-width: 600px) {
+        margin-top: 55px;
         width: 1110px;
 
         #hamburger, #x{
@@ -25,14 +26,13 @@ export const Nav = styled.nav`
     height: 383px;
     background-color: ${props => props.theme.darkViolet};
     border-radius: 10px;
-    padding: 40px 24px 39px 24px;
+    padding: 39px 24px 39px 24px;
     transform: translateX(150%);
     transition: transform 1s;
     z-index: 10;
 
     ul{
         width: 100%;
-        height: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -45,8 +45,13 @@ export const Nav = styled.nav`
             width: 100%;
             text-align: center;
             color: #fff;
-            font-weight: ${props => props.theme.extraBold};
-            font-size: 19px;
+            font-weight: ${props => props.theme.bold};
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        &#menu2 li:first-child{
+            margin-top: 32px;
         }
     }
 
@@ -54,37 +59,41 @@ export const Nav = styled.nav`
         position: relative;
         top: 0;
         width: 100%;
-        height: 10px;
+        height: 0px;
         background: none;
-        border-radius: 10px;
+        border-radius: none;
         padding: 0;
         transform: translateX(0);
         transition: none;
-        z-index: 10;
+        z-index: 0;
+        display: flex;
+        align-items: center;
+
+        .divider{
+            display: none;
+        }
 
         ul{
-            width: 100%;
             height: 100%;
-            display: flex;
             flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
             transition: none;
             opacity: 1;
             transform: translateX(0);
+            margin-left: 2px;
 
             li{
-                width: 100%;
-                text-align: center;
+                height: 100%;
                 color: ${props => props.theme.grayishViolet};
-                font-weight: ${props => props.theme.extraBold};
-                font-size: 19px;
+                font-weight: ${props => props.theme.bold};
+                font-size: 15px;
+            }
 
-                &:nth-child(4){
-                    display: none;
+            &#menu2{
+                & li:first-child{
+                    margin-top: 0px;
                 }
 
-                &:last-child{
+                & li:last-child{
                     color: #fff;
                 }
             }
@@ -114,5 +123,5 @@ export const SignUpButton = styled.button`
     height: 48px;
     background-color: ${props => props.theme.cyan};
     border-radius: 25px;
-    margin-bottom: 1px;
+    margin-top: -5px;
 `

@@ -21,15 +21,18 @@ export function Header(){
             }
             
             <Nav className={navIsOpen ? "show" : ""}>
-                <ul>
+                <ul id="menu1">
                     <li>Features</li>
                     <li>Pricing</li>
                     <li>Resources</li>
-
-                    <li><Divider /></li>
-
+                </ul>
+                
+                <Divider className="divider"/>
+                
+                <ul id="menu2">
                     <li>Login</li>
                     <li><SignUpButton>SignUp</SignUpButton></li>
+
                 </ul>
             </Nav>
         </ShortlyHeader>
