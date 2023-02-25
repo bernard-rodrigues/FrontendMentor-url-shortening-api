@@ -38,7 +38,7 @@ export function Features(){
         window.addEventListener('resize', () => {
             setScreenWidth(innerWidth)
         })
-    })
+    }, [])
 
     async function formSubmit(event: FormEvent){
         event.preventDefault()
@@ -109,9 +109,9 @@ export function Features(){
                         {
                             screenWidth < 1200
                             ?
-                                (shortenedLink.link.length <= 32 
+                                (shortenedLink.link.length <= Math.floor(screenWidth*0.085)
                                 ? shortenedLink.link 
-                                : shortenedLink.link.slice(0,32) + '...')
+                                : shortenedLink.link.slice(0, Math.floor(screenWidth*0.085)) + '...')
                             :
                                 (shortenedLink.link.length <= 48 
                                 ? shortenedLink.link 
