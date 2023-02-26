@@ -96,6 +96,7 @@ export const FeaturesSection = styled.section`
         form{
             width: ${props => props.theme.desktopWidth};
             height: 168px;
+            transform: translateY(-84px);
             flex-direction: row;
             align-items: center;
             gap: 24px;
@@ -132,7 +133,7 @@ export const FeaturesSection = styled.section`
 
         h2{
             font-size: 38.2px;
-            margin-top: 15px;
+            margin-top: 11px;
         }
 
         p{

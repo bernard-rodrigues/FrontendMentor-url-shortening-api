@@ -37,7 +37,7 @@ export const PresentationSection = styled.section`
     @media only screen and (min-width: 1200px) {
         align-items: flex-start;
         width: ${props => props.theme.desktopWidth};
-        padding: 0;
+        padding: 0 0 54px 0;
         overflow-x: visible;
         margin-left: calc((100% - ${props => props.theme.desktopWidth})/2);
 
@@ -47,6 +47,7 @@ export const PresentationSection = styled.section`
             line-height: 90px;
             margin-top: 145px;
             width: 55%;
+            letter-spacing: -2px;
         }
 
         img{
@@ -60,7 +61,7 @@ export const PresentationSection = styled.section`
             margin-top: -1px;
             text-align: left;
             width: 55%;
-            font-size: 22px;
+            font-size: 22.2px;
             line-height: 35.5px;
         }
 
