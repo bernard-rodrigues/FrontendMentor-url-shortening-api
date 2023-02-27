@@ -1,6 +1,35 @@
 import bgShortenMobile from '../../assets/images/bg-shorten-mobile.svg'
 import bgShortenDesktop from '../../assets/images/bg-shorten-desktop.svg'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+
+const firstAppear = keyframes`
+    from{
+        transform: translate(81px, -44px);
+        opacity: 0;
+    }
+    to{
+        transform: translate(0, -44px);
+        opacity: 1;
+    }
+`
+
+const appear = keyframes`
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+`
+
+const growHorizontal = keyframes`
+    from{
+        width: 0;
+    }
+    to{
+        width: 30px;
+    }
+`
 
 export const FeaturesSection = styled.section`
     background-color: ${props => props.theme.grayishVioletTransparent};
@@ -157,6 +186,30 @@ export const FeaturesSection = styled.section`
             div:last-child{
                 transform: translateY(44px);
             }
+
+            div:nth-child(1).animate{
+                animation: ${firstAppear} 0.5s linear forwards;
+            }
+
+            div:nth-child(2).animate{
+                animation: ${growHorizontal} 0.5s linear forwards;
+                animation-delay: 0.5s;
+            }
+
+            div:nth-child(3).animate{
+                animation: ${appear} 0.5s linear forwards;
+                animation-delay: 1s;
+            }
+
+            div:nth-child(4).animate{
+                animation: ${growHorizontal} 0.5s linear forwards;
+                animation-delay: 1.5s;
+            }
+
+            div:nth-child(5).animate{
+                animation: ${appear} 0.5s linear forwards;
+                animation-delay: 2s;
+            }
         }
     }
 `
@@ -284,6 +337,7 @@ export const FeatureContainer = styled.div`
     @media only screen and (min-width: 1200px) {
         height: 269px;
         width: 351px;
+        opacity: 0;
 
         h3{
             text-align: left;
@@ -328,7 +382,7 @@ export const FeatureSeparator = styled.div`
     transform: translateX(-50%);
 
     @media only screen and (min-width: 1200px) {
-        width: 30px;
+        width: 0px;
         height: 8px;
         margin-left: 0;
         transform: translateX(0);

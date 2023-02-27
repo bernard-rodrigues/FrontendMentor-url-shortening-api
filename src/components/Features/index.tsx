@@ -1,7 +1,7 @@
 import iconBrandRecognition from '../../assets/images/icon-brand-recognition.svg'
 import iconDetailedRecords from '../../assets/images/icon-detailed-records.svg'
 import iconFullyCustomizable from '../../assets/images/icon-fully-customizable.svg'
-import { FormEvent, useEffect, useRef, useState } from 'react'
+import { FormEvent, useEffect, useState, useRef } from 'react'
 import { FeatureContainer, FeatureSeparator, FeaturesSection, ImgContainer, ShortenedContainer } from './styles';
 import CopyToClipboard from 'react-copy-to-clipboard'
 import { shorten } from '../../lib/axios';
@@ -16,7 +16,11 @@ interface Shortened{
 
 export function Features(){
     const [ inputOnFocus, setInputOnFocus ] = useState(false);
-    const [ screenWidth, setScreenWidth ] = useState(innerWidth)
+    const [ screenWidth, setScreenWidth ] = useState(innerWidth);
+
+    const [ reachedFeatures, setReachedFeatures ] = useState(false);
+
+    const featuresRef = useRef<HTMLDivElement | null>(null)
 
     const [ link, setLink ] = useState('');
     const [shortenedLinks, setShortenedLinks ] = useState<Shortened[]>(checkLocalStorage());
@@ -29,6 +33,22 @@ export function Features(){
         }return []
     }
 
+    function onScroll(){
+        const offset = 270
+        
+        if(!featuresRef.current){
+            setReachedFeatures(false)
+            return
+        }
+
+        const top = featuresRef.current.getBoundingClientRect().top
+
+        if(top + offset >= 0 && top + offset <= window.innerHeight){
+            setReachedFeatures(true);
+            window.removeEventListener('scroll', onScroll);
+        }
+    }
+
     useEffect(() => {
         localStorage.setItem("shortenedLinks", JSON.stringify(shortenedLinks));
     }, [shortenedLinks]);
@@ -37,6 +57,16 @@ export function Features(){
         window.addEventListener('resize', () => {
             setScreenWidth(innerWidth)
         })
+
+        window.addEventListener('scroll', onScroll);
+
+        return () => {
+            window.removeEventListener('resize', () => {
+                setScreenWidth(innerWidth)
+            })
+
+            window.removeEventListener('scroll', onScroll);
+        }
     }, [])
 
     async function formSubmit(event: FormEvent){
@@ -141,8 +171,8 @@ export function Features(){
             <h2>Advanced Statistics</h2>
             <p>Track how your links are performing across the web with our advanced statistics dashboard.</p>
             
-            <div id="features">
-                <FeatureContainer>
+            <div id="features" ref={featuresRef}>
+                <FeatureContainer className={reachedFeatures ? "animate" : ""}>
                     <ImgContainer>
                         <img src={iconBrandRecognition} alt="Brand Recognition Icon" />
                     </ImgContainer>
@@ -154,9 +184,9 @@ export function Features(){
                     </p>
                 </FeatureContainer>
 
-                <FeatureSeparator />
+                <FeatureSeparator className={reachedFeatures ? "animate" : ""}/>
 
-                <FeatureContainer>
+                <FeatureContainer className={reachedFeatures ? "animate" : ""}>
                     <ImgContainer>
                         <img src={iconDetailedRecords} alt="Detailed Records Icon" />
                     </ImgContainer>
@@ -169,9 +199,9 @@ export function Features(){
                     </p>
                 </FeatureContainer>
 
-                <FeatureSeparator />
+                <FeatureSeparator className={reachedFeatures ? "animate" : ""} />
 
-                <FeatureContainer>
+                <FeatureContainer className={reachedFeatures ? "animate" : ""}>
                     <ImgContainer>
                         <img src={iconFullyCustomizable} alt="Fully Customizable Icon" />
                     </ImgContainer>
