@@ -23,6 +23,15 @@ const growHorizontal = keyframes`
     }
 `
 
+const growVertical = keyframes`
+    from{
+        height: 0;
+    }
+    to{
+        height: 92px;
+    }
+`
+
 export const FeaturesSection = styled.section`
     background-color: ${props => props.theme.grayishVioletTransparent};
     padding: 0px 24px 80px 24px;
@@ -105,6 +114,32 @@ export const FeaturesSection = styled.section`
         margin-top: 19px;
         margin-bottom: 89px;
         line-height: 28px;
+    }
+
+    #features{
+        div:nth-child(1).animate{
+            animation: ${appear} 0.5s linear forwards;
+        }
+
+        div:nth-child(2).animate{
+            animation: ${growVertical} 0.5s linear forwards;
+            animation-delay: 0.5s;
+        }
+
+        div:nth-child(3).animate{
+            animation: ${appear} 0.5s linear forwards;
+            animation-delay: 1s;
+        }
+
+        div:nth-child(4).animate{
+            animation: ${growVertical} 0.5s linear forwards;
+            animation-delay: 1.5s;
+        }
+
+        div:nth-child(5).animate{
+            animation: ${appear} 0.5s linear forwards;
+            animation-delay: 2s;
+        }
     }
 
     @media only screen and (min-width: 1200px) {
@@ -310,6 +345,7 @@ export const FeatureContainer = styled.div`
     position: relative;
     border-radius: 5px;
     padding-top: 77px;
+    opacity: 0;
 
     h3{
         text-align: center;
@@ -329,7 +365,6 @@ export const FeatureContainer = styled.div`
     @media only screen and (min-width: 1200px) {
         height: 269px;
         width: 351px;
-        opacity: 0;
 
         h3{
             text-align: left;
@@ -367,7 +402,7 @@ export const ImgContainer = styled.div`
 `
 
 export const FeatureSeparator = styled.div`
-    height: 92px;
+    height: 0px;
     width: 8px;
     background-color: ${props => props.theme.cyan};
     margin-left: 50%;

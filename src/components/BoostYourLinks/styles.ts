@@ -2,7 +2,28 @@ import styled, { keyframes } from 'styled-components'
 import { Button } from "../Presentation/styles"
 import bgBoostMobile from "../../assets/images/bg-boost-mobile.svg"
 import bgBoostDesktop from "../../assets/images/bg-boost-desktop.svg"
-import { appearLeft, appearRight } from '../Header/styles'
+
+const appearLeft = keyframes`
+    from{
+        opacity: 0;
+        transform: translate(-100px, -5px);
+    }
+    to{
+        opacity: 1;
+        transform: translate(0, -5px);
+    }
+`
+
+const appearRight = keyframes`
+    from{
+        opacity: 0;
+        transform: translate(100px, 6px);
+    }
+    to{
+        opacity: 1;
+        transform: translate(0, 6px);
+    }
+`
 
 export const BoostContainer = styled.section`
     width: 100%;
@@ -21,21 +42,23 @@ export const BoostContainer = styled.section`
         color: #fff;
         font-size: 26.6px;
         text-align: center;
+        opacity: 0;
+        
+        &.animate{
+            animation: ${appearLeft} 1s linear forwards;
+        }
     }
 
     @media only screen and (min-width: 1200px) {
         height: 250px;
         background-image: url(${bgBoostDesktop});
         background-size: cover;
-
+        
+        
         h2{
             font-size: 37.8px;
             transform: translateY(-5px);
-            opacity: 0;
             
-            &.animate{
-                animation: ${appearLeft} 1s linear forwards;
-            }
         }
 
     }
@@ -47,6 +70,6 @@ export const BoostButton = styled(Button)`
     opacity: 0;
 
     &.animate{
-            animation: ${appearRight} 1s linear forwards;
-        }
+        animation: ${appearRight} 1s linear forwards;
+    }
 `
