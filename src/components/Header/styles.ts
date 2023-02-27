@@ -1,4 +1,35 @@
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
+
+export const appear = keyframes`
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+`
+
+export const appearLeft = keyframes`
+    from{
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(0);
+        opacity: 1;
+    }
+`
+
+export const appearRight = keyframes`
+    from{
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(0);
+        opacity: 1;
+    }
+`
 
 export const ShortlyHeader = styled.header`
     margin-top: 39px;
@@ -21,6 +52,8 @@ export const ShortlyHeader = styled.header`
         img{
             margin-right: 45px;
             margin-left: 3px;
+            opacity: 0;
+            animation: ${appearLeft} 1s linear forwards;
         }
     }
 `
@@ -105,23 +138,46 @@ export const Nav = styled.nav`
 
                 & li{
                     margin-right: 29px;
+                    opacity: 0;
 
                     &:last-child{
                         margin-left: 3px;
+                    }
+
+                    &:nth-child(1){
+                        animation: ${appear} 0.5s linear forwards;
+                        animation-delay: 0.5s;
+                    }
+
+                    &:nth-child(2){
+                        animation: ${appear} 0.5s linear forwards;
+                        animation-delay: 1s;
+                        
+                    }
+
+                    &:nth-child(3){
+                        animation: ${appear} 0.5s linear forwards;
+                        animation-delay: 1.5s;
                     }
                 }
             }
 
             &#menu2{
                 justify-content: end;
-            }
 
-            &#menu2 li:first-child{
-                margin-top: 0px;
-            }
+                & li:first-child{
+                    margin-top: 0px;
+                    opacity: 0;
+                    animation: ${appear} 0.5s linear forwards;
+                    animation-delay: 2s;
+                }
 
-            &#menu2 li:last-child{
-                color: #fff;
+                & li:last-child{
+                    color: #fff;
+                    opacity: 0;
+                    animation: ${appearRight} 1s linear forwards;
+                    animation-delay: 1.75s;
+                }
             }
         }
 

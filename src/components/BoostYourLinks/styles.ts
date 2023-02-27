@@ -1,7 +1,8 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { Button } from "../Presentation/styles"
 import bgBoostMobile from "../../assets/images/bg-boost-mobile.svg"
 import bgBoostDesktop from "../../assets/images/bg-boost-desktop.svg"
+import { appearLeft, appearRight } from '../Header/styles'
 
 export const BoostContainer = styled.section`
     width: 100%;
@@ -30,11 +31,22 @@ export const BoostContainer = styled.section`
         h2{
             font-size: 37.8px;
             transform: translateY(-5px);
+            opacity: 0;
+            
+            &.animate{
+                animation: ${appearLeft} 1s linear forwards;
+            }
         }
+
     }
 `
 
 export const BoostButton = styled(Button)`
     margin: 0;
     transform: translateY(6px);
+    opacity: 0;
+
+    &.animate{
+            animation: ${appearRight} 1s linear forwards;
+        }
 `

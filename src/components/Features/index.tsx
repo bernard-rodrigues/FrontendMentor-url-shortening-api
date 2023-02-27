@@ -34,10 +34,10 @@ export function Features(){
     }
 
     function onScroll(){
-        const offset = 270
+        const offset = 200
         
         if(!featuresRef.current){
-            setReachedFeatures(false)
+            setReachedFeatures(false);
             return
         }
 
@@ -45,7 +45,6 @@ export function Features(){
 
         if(top + offset >= 0 && top + offset <= window.innerHeight){
             setReachedFeatures(true);
-            window.removeEventListener('scroll', onScroll);
         }
     }
 

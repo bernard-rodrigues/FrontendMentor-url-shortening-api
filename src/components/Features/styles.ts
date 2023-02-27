@@ -1,6 +1,7 @@
 import bgShortenMobile from '../../assets/images/bg-shorten-mobile.svg'
 import bgShortenDesktop from '../../assets/images/bg-shorten-desktop.svg'
 import styled, { keyframes } from 'styled-components'
+import { appear } from '../Header/styles'
 
 const firstAppear = keyframes`
     from{
@@ -9,15 +10,6 @@ const firstAppear = keyframes`
     }
     to{
         transform: translate(0, -44px);
-        opacity: 1;
-    }
-`
-
-const appear = keyframes`
-    from{
-        opacity: 0;
-    }
-    to{
         opacity: 1;
     }
 `
